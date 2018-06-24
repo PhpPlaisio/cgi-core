@@ -1,0 +1,37 @@
+{
+  "name": "setbased/abc-cgi-core",
+  "description": "ABC-Framework: CGI Core",
+  "keywords": [
+    "ABC-Framework",
+    "CGI",
+    "Core"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1.0",
+    "setbased/abc": "*",
+    "setbased/abc-cgi": "^1.0.0",
+    "setbased/abc-exception": "^1.0.0",
+    "setbased/abc-html": "^2.0.0",
+    "setbased/abc-url": "^2.0.0"
+  },
+  "require-dev": {
+    "phing/phing": "^2.0.0",
+    "phpunit/phpunit": "^6.0.0",
+    "setbased/abc-cgi-test": "*",
+    "setbased/abc-obfuscator-core": "^2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SetBased\\Abc\\Cgi\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SetBased\\Abc\\Cgi\\Test\\": "test/"
+    }
+  },
+  "config": {
+    "bin-dir": "bin/"
+  }
+}
