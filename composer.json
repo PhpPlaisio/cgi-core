@@ -18,7 +18,7 @@
   "require-dev": {
     "phing/phing": "^2.0.0",
     "phpunit/phpunit": "^6.0.0",
-    "setbased/abc-cgi-test": "*",
+    "setbased/abc-cgi-test": "^1.0.0",
     "setbased/abc-obfuscator-core": "^2.0.0"
   },
   "autoload": {

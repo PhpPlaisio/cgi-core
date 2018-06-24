@@ -342,22 +342,23 @@ class CoreCgi implements Cgi
   /**
    * Returns a string with holding a boolean CGI variable that can be used as a part of a URL.
    *
-   * @param string    $name  The name of the boolean CGI variable.
-   * @param bool|null $value The value of the CGI variable.
+   * @param string    $name      The name of the boolean CGI variable.
+   * @param bool|null $value     The value of the CGI variable.
+   * @param bool      $mandatory If true a false value will not result in an empty string.
    *
    * @return string
    *
    * @api
    * @since 1.0.0
    */
-  public function putBool(string $name, ?bool $value): string
+  public function putBool(string $name, ?bool $value, bool $mandatory = false): string
   {
     if ($value===true)
     {
       return '/'.urlencode($name).'/1';
     }
 
-    if ($value===false)
+    if ($value===false && $mandatory===true)
     {
       return '/'.urlencode($name).'/0';
     }
