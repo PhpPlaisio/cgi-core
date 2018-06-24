@@ -1,6 +1,6 @@
 # ABC-Framework: CGI Interface Core
 
-table>
+<table>
 <thead>
 <tr>
 <th>Social</th>
