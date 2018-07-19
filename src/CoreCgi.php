@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace SetBased\Abc\Cgi;
 
@@ -216,7 +217,7 @@ class CoreCgi implements Cgi
     switch (true)
     {
       case is_numeric($value):
-        return $value;
+        return (float)$value;
 
       case $value===null || $value==='':
         return $default;
@@ -273,7 +274,7 @@ class CoreCgi implements Cgi
     switch (true)
     {
       case is_numeric($value) && (int)$value==(float)$value:
-        return $value;
+        return (int)$value;
 
       case $value===null || $value==='':
         return $default;
@@ -427,7 +428,7 @@ class CoreCgi implements Cgi
   {
     if ($value!==null)
     {
-      return '/'.urlencode($name).'/'.urlencode($value);
+      return '/'.urlencode($name).'/'.$value;
     }
 
     return '';
