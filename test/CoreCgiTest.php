@@ -12,18 +12,9 @@ class CoreCgiTest extends CgiTest
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Object constructor.
-   */
-  public static function setUpBeforeClass()
-  {
-    new TestAbc();
-  }
-
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
    * Test cases for putLeader.
    */
-  public function testPutLeader()
+  public function testPutLeader(): void
   {
     $value = Abc::$cgi->putLeader();
     self::assertSame('', $value);
