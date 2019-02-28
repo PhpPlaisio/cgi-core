@@ -5,7 +5,9 @@ namespace SetBased\Abc\Cgi;
 
 use SetBased\Abc\Abc;
 use SetBased\Abc\Exception\InvalidUrlException;
+use SetBased\Abc\Helper\Cast;
 use SetBased\Abc\Helper\Html;
+use SetBased\Abc\Helper\InvalidCastException;
 use SetBased\Abc\Helper\Url;
 
 /**
@@ -181,20 +183,15 @@ class CoreCgi implements Cgi
   public function getOptBool(string $name, ?bool $default = null): ?bool
   {
     $value = $_GET[$name] ?? null;
+    if ($value==='') $value = null;
 
-    switch (true)
+    try
     {
-      case $value=='1':
-        return true;
-
-      case $value=='0':
-        return false;
-
-      case $value===null || $value==='':
-        return $default;
-
-      default:
-        throw new InvalidUrlException("Value of CGI variable '%s' is not an integer", $name);
+      return Cast::toOptBool($value, $default);
+    }
+    catch (InvalidCastException $e)
+    {
+      throw new InvalidUrlException([$e], "Value of CGI variable '%s' is not a boolean", $name);
     }
   }
 
@@ -213,17 +210,15 @@ class CoreCgi implements Cgi
   public function getOptFloat(string $name, ?float $default = null): ?float
   {
     $value = $_GET[$name] ?? null;
+    if ($value==='') $value = null;
 
-    switch (true)
+    try
     {
-      case is_numeric($value):
-        return (float)$value;
-
-      case $value===null || $value==='':
-        return $default;
-
-      default:
-        throw new InvalidUrlException("Value of CGI variable '%s' is not a float", $name);
+      return Cast::toOptFloat($value, $default);
+    }
+    catch (InvalidCastException $e)
+    {
+      throw new InvalidUrlException([$e], "Value of CGI variable '%s' is not a float", $name);
     }
   }
 
@@ -270,17 +265,15 @@ class CoreCgi implements Cgi
   public function getOptInt(string $name, ?int $default = null): ?int
   {
     $value = $_GET[$name] ?? null;
+    if ($value==='') $value = null;
 
-    switch (true)
+    try
     {
-      case is_numeric($value) && (int)$value==(float)$value:
-        return (int)$value;
-
-      case $value===null || $value==='':
-        return $default;
-
-      default:
-        throw new InvalidUrlException("Value of CGI variable '%s' is not an integer", $name);
+      return Cast::toOptInt($value, $default);
+    }
+    catch (InvalidCastException $e)
+    {
+      throw new InvalidUrlException([$e], "Value of CGI variable '%s' is not an integer", $name);
     }
   }
 
@@ -301,13 +294,16 @@ class CoreCgi implements Cgi
   public function getOptString(string $name, ?string $default = null): ?string
   {
     $value = $_GET[$name] ?? null;
+    if ($value==='') $value = null;
 
-    if ($value!==null && $value!=='')
+    try
     {
-      return $value;
+      return Cast::toOptString($value, $default);
     }
-
-    return $default;
+    catch (InvalidCastException $e)
+    {
+      throw new InvalidUrlException([$e], "Value of CGI variable '%s' is not a string", $name);
+    }
   }
 
   //--------------------------------------------------------------------------------------------------------------------
