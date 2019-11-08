@@ -9,9 +9,9 @@
   "license": "MIT",
   "require": {
     "php": ">=7.1.0",
-    "setbased/abc": "*",
+    "setbased/abc": "^0.10.0",
     "setbased/abc-cgi": "^1.0.0",
-    "setbased/abc-exception": "^1.0.0",
+    "setbased/abc-exception": "^2.0.0",
     "setbased/abc-html": "^2.0.0",
     "setbased/abc-url": "^2.0.0",
     "setbased/helper-cast": "^1.2.0"
@@ -19,7 +19,7 @@
   "require-dev": {
     "phing/phing": "^2.0.0",
     "phpunit/phpunit": "^7.0.0 || ^8.0.0",
-    "setbased/abc-cgi-test": "^1.1.1",
+    "setbased/abc-cgi-test": "^1.2.0",
     "setbased/abc-obfuscator-core": "^2.0.0"
   },
   "autoload": {
