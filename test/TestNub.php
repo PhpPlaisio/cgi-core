@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace SetBased\Abc\Cgi\Test;
+namespace Plaisio\Cgi\Test;
 
-use SetBased\Abc\Abc;
-use SetBased\Abc\Cgi\CoreCgi;
-use SetBased\Abc\Obfuscator\DevelopmentObfuscatorFactory;
+use Plaisio\Cgi\CoreCgi;
+use Plaisio\Kernel\Nub;
+use Plaisio\Obfuscator\DevelopmentObfuscatorFactory;
 
 /**
  * Concrete implementation of ABC.
  */
-class TestAbc extends Abc
+class TestNub extends Nub
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -20,8 +20,8 @@ class TestAbc extends Abc
   {
     parent::__construct();
 
-    Abc::$cgi               = new CoreCgi();
-    Abc::$obfuscatorFactory = new DevelopmentObfuscatorFactory();
+    self::$cgi               = new CoreCgi();
+    self::$obfuscatorFactory = new DevelopmentObfuscatorFactory();
   }
 
   //--------------------------------------------------------------------------------------------------------------------

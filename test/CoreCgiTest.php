@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SetBased\Abc\Cgi\Test;
+namespace Plaisio\Cgi\Test;
 
-use SetBased\Abc\Abc;
+use Plaisio\Kernel\Nub;
 
 /**
  * Concrete implementation of the unit test.
@@ -16,7 +16,7 @@ class CoreCgiTest extends CgiTest
    */
   public function testPutLeader(): void
   {
-    $value = Abc::$cgi->putLeader();
+    $value = Nub::$cgi->putLeader();
     self::assertSame('', $value);
   }
 

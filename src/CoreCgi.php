@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace SetBased\Abc\Cgi;
+namespace Plaisio\Cgi;
 
-use SetBased\Abc\Abc;
-use SetBased\Abc\Exception\InvalidUrlException;
-use SetBased\Abc\Helper\Cast;
-use SetBased\Abc\Helper\Html;
-use SetBased\Abc\Helper\InvalidCastException;
-use SetBased\Abc\Helper\Url;
+use Plaisio\Exception\InvalidUrlException;
+use Plaisio\Helper\Html;
+use Plaisio\Helper\Url;
+use Plaisio\Kernel\Nub;
+use SetBased\Helper\Cast;
+use SetBased\Helper\InvalidCastException;
 
 /**
  * Core implementation of the CGI interface.
@@ -240,7 +240,7 @@ class CoreCgi implements Cgi
   {
     $value = $_GET[$name] ?? null;
 
-    $id = Abc::deObfuscate($value, $label);
+    $id = Nub::deObfuscate($value, $label);
 
     if ($id!==null)
     {
@@ -402,7 +402,7 @@ class CoreCgi implements Cgi
   {
     if ($value!==null)
     {
-      return '/'.$name.'/'.Abc::obfuscate($value, $label);
+      return '/'.$name.'/'.Nub::obfuscate($value, $label);
     }
 
     return '';
