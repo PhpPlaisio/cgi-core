@@ -498,7 +498,7 @@ class CoreCgi implements Cgi
    */
   public function putUrl(string $name, ?string $value): string
   {
-    return self::putString($name, $value);
+    return $this->putString($name, $value);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
