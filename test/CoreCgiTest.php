@@ -16,7 +16,7 @@ class CoreCgiTest extends CgiTest
    */
   public function testPutLeader(): void
   {
-    $value = Nub::$cgi->putLeader();
+    $value = Nub::$nub->cgi->putLeader();
     self::assertSame('', $value);
   }
 

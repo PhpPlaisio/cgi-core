@@ -13,14 +13,14 @@
     "plaisio/exception": "^1.1",
     "plaisio/helper-html": "^1.1",
     "plaisio/helper-url": "^1.1",
-    "plaisio/kernel": "^1.1",
+    "plaisio/kernel": "^2.0",
     "setbased/helper-cast": "^2.1"
   },
   "require-dev": {
     "phing/phing": "^2.0",
     "phpunit/phpunit": "^9.0",
     "plaisio/obfuscator-core": "^1.1",
-    "plaisio/cgi-test": "^1.1"
+    "plaisio/cgi-test": "^1.2.1"
   },
   "autoload": {
     "psr-4": {

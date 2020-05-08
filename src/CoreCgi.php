@@ -240,7 +240,7 @@ class CoreCgi implements Cgi
   {
     $value = $_GET[$name] ?? null;
 
-    $id = Nub::deObfuscate($value, $label);
+    $id = Nub::$nub->deObfuscate($value, $label);
 
     if ($id!==null)
     {
@@ -402,7 +402,7 @@ class CoreCgi implements Cgi
   {
     if ($value!==null)
     {
-      return '/'.$name.'/'.Nub::obfuscate($value, $label);
+      return '/'.$name.'/'.Nub::$nub->obfuscate($value, $label);
     }
 
     return '';
