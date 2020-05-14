@@ -5,24 +5,15 @@ namespace Plaisio\Cgi\Test;
 
 use Plaisio\Cgi\Cgi;
 use Plaisio\Cgi\CoreCgi;
-use Plaisio\Kernel\Nub;
 use Plaisio\Obfuscator\DevelopmentObfuscatorFactory;
 use Plaisio\Obfuscator\ObfuscatorFactory;
+use Plaisio\PlaisioKernel;
 
 /**
  * Kernel for testing purposes.
  */
-class TestKernel extends Nub
+class TestKernel extends PlaisioKernel
 {
-  //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Object constructor.
-   */
-  public function __construct()
-  {
-    parent::__construct();
-  }
-
   //--------------------------------------------------------------------------------------------------------------------
   /**
    * Returns the helper object for CGI variables.
@@ -31,7 +22,7 @@ class TestKernel extends Nub
    */
   public function getCgi(): Cgi
   {
-    return new CoreCgi();
+    return new CoreCgi($this);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -40,7 +31,7 @@ class TestKernel extends Nub
    *
    * @return ObfuscatorFactory
    */
-  public function getObfuscatorFactory(): ObfuscatorFactory
+  public function getObfuscator(): ObfuscatorFactory
   {
     return new DevelopmentObfuscatorFactory();
   }

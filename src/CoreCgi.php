@@ -6,14 +6,14 @@ namespace Plaisio\Cgi;
 use Plaisio\Exception\InvalidUrlException;
 use Plaisio\Helper\Html;
 use Plaisio\Helper\Url;
-use Plaisio\Kernel\Nub;
+use Plaisio\PlaisioObject;
 use SetBased\Helper\Cast;
 use SetBased\Helper\InvalidCastException;
 
 /**
  * Core implementation of the CGI interface.
  */
-class CoreCgi implements Cgi
+class CoreCgi extends PlaisioObject implements Cgi
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -240,7 +240,7 @@ class CoreCgi implements Cgi
   {
     $value = $_GET[$name] ?? null;
 
-    $id = Nub::$nub->deObfuscate($value, $label);
+    $id = $this->nub->obfuscator::decode($value, $label);
 
     if ($id!==null)
     {
@@ -402,7 +402,7 @@ class CoreCgi implements Cgi
   {
     if ($value!==null)
     {
-      return '/'.$name.'/'.Nub::$nub->obfuscate($value, $label);
+      return '/'.$name.'/'.$this->nub->obfuscator::encode($value, $label);
     }
 
     return '';
