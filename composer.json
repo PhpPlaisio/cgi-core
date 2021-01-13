@@ -11,7 +11,7 @@
     "php": ">=7.4",
     "plaisio/cgi": "^1.2.0",
     "plaisio/exception": "^1.1.0",
-    "plaisio/helper-html": "^1.5.0",
+    "plaisio/helper-html": "^2.0.0",
     "plaisio/helper-url": "^1.1.2",
     "plaisio/kernel": "^3.1.1",
     "plaisio/obfuscator": "^2.0.0",
