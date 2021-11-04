@@ -22,7 +22,7 @@
 <a href="https://packagist.org/packages/plaisio/cgi-core"><img src="https://poser.pugx.org/plaisio/cgi-core/v/stable" alt="Latest Stable Version"/></a>
 </td>
 <td>
-<a href="https://travis-ci.org/PhpPlaisio/cgi-core"><img src="https://travis-ci.org/PhpPlaisio/cgi-core.svg?branch=master" alt="Build Status"/></a><br/>
+<a href="https://app.travis-ci.com/github/PhpPlaisio/cgi-core"><img src="https://app.travis-ci.com/PhpPlaisio/cgi-core.svg?branch=master" alt="Build Status"/></a><br/>
 <a href="https://scrutinizer-ci.com/g/PhpPlaisio/cgi-core/?branch=master"><img src="https://scrutinizer-ci.com/g/PhpPlaisio/cgi-core/badges/coverage.png?b=master" alt="Code Coverage"/></a>
 </td>
 <td>
