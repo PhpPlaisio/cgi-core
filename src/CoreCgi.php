@@ -68,7 +68,7 @@ class CoreCgi extends PlaisioObject implements Cgi
    * Returns the integer value of a mandatory obfuscated database ID.
    *
    * @param string   $name    The name of the CGI variable.
-   * @param string   $label   An alias for the column holding database ID and must corresponds with label that was used
+   * @param string   $label   An alias for the column holding database ID and must correspond with label that was used
    *                          to obfuscate the database ID.
    * @param int|null $default The value to be used when the CGI variable is not set.
    *
@@ -141,7 +141,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of a mandatory CGI variable holding an URL.
+   * Returns the value of a mandatory CGI variable holding a URL.
    *
    * This method will protect against unvalidated redirects, see
    * <https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet>.
@@ -227,7 +227,7 @@ class CoreCgi extends PlaisioObject implements Cgi
    * Returns the value of an optional obfuscated database ID.
    *
    * @param string   $name    The name of the CGI variable.
-   * @param string   $label   An alias for the column holding database ID and must corresponds with label that was used
+   * @param string   $label   An alias for the column holding database ID and must correspond with label that was used
    *                          to obfuscate the database ID.
    * @param int|null $default The value to be used when the CGI variable is not set.
    *
@@ -308,7 +308,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of an optional CGI variable holding an URL.
+   * Returns the value of an optional CGI variable holding a URL.
    *
    * This method will protect against unvalidated redirects, see
    * <https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet>.
@@ -446,10 +446,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns (virtual) filename based on the slug of a string that can be safely used in an URL.
+   * Returns (virtual) filename based on the slug of a string that can be safely used in a URL.
    *
-   * @param string $string    The string.
-   * @param string $extension The extension of the (virtual) filename.
+   * @param string|null $string    The string.
+   * @param string      $extension The extension of the (virtual) filename.
    *
    * @return string
    */
