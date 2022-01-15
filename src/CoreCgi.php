@@ -484,7 +484,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a CGI variable with an URL as value that can be used as a part of a URL.
+   * Returns a string with holding a CGI variable with a URL as value that can be used as a part of a URL.
    *
    * Note: This method is an alias of {@link putCgiVar}.
    *
