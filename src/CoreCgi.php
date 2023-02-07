@@ -389,9 +389,9 @@ class CoreCgi extends PlaisioObject implements Cgi
   /**
    * Returns a string with holding a CGI variable that can be used as a part of a URL.
    *
-   * @param string      $name  The name of the CGI variable.
-   * @param int|null    $value The value of the CGI variable.
-   * @param string|null $label The alias for the column holding database ID.
+   * @param string   $name  The name of the CGI variable.
+   * @param int|null $value The value of the CGI variable.
+   * @param string   $label The alias for the column holding database ID.
    *
    * @return string
    *
