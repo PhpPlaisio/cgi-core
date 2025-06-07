@@ -183,7 +183,10 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getOptBool(string $name, ?bool $default = null): ?bool
   {
     $value = $_GET[$name] ?? null;
-    if ($value==='') $value = null;
+    if ($value==='')
+    {
+      $value = null;
+    }
 
     try
     {
@@ -210,7 +213,10 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getOptFloat(string $name, ?float $default = null): ?float
   {
     $value = $_GET[$name] ?? null;
-    if ($value==='') $value = null;
+    if ($value==='')
+    {
+      $value = null;
+    }
 
     try
     {
@@ -265,7 +271,10 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getOptInt(string $name, ?int $default = null): ?int
   {
     $value = $_GET[$name] ?? null;
-    if ($value==='') $value = null;
+    if ($value==='')
+    {
+      $value = null;
+    }
 
     try
     {
@@ -294,7 +303,10 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getOptString(string $name, ?string $default = null): ?string
   {
     $value = $_GET[$name] ?? null;
-    if ($value==='') $value = null;
+    if ($value==='')
+    {
+      $value = null;
+    }
 
     try
     {
