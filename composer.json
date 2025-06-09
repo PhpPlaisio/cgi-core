@@ -21,8 +21,8 @@
     "phing/phing": "^3.0.1",
     "phpunit/phpunit": "^11.5.22",
     "plaisio/cgi-test": "^1.6.0",
-    "plaisio/console-kernel": "^1.1.0",
-    "plaisio/obfuscator-core": "^3.3.0"
+    "plaisio/console-kernel": "^1.2.0",
+    "plaisio/obfuscator-core": "^3.4.0"
   },
   "autoload": {
     "psr-4": {
