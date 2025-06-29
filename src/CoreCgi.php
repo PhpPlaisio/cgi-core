@@ -31,7 +31,6 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getManBool(string $name, ?bool $default = null): bool
   {
     $value = $this->getOptBool($name, $default);
-
     if ($value===null)
     {
       throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
@@ -55,7 +54,6 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getManFloat(string $name, ?float $default = null): float
   {
     $value = $this->getOptFloat($name, $default);
-
     if ($value===null)
     {
       throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
@@ -81,7 +79,6 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getManId(string $name, string $label, ?int $default = null): int
   {
     $value = $this->getOptId($name, $label, $default);
-
     if ($value===null)
     {
       throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
@@ -105,7 +102,6 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getManInt(string $name, ?int $default = null): int
   {
     $value = $this->getOptInt($name, $default);
-
     if ($value===null)
     {
       throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
@@ -131,7 +127,6 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getManString(string $name, ?string $default = null): string
   {
     $value = $this->getOptString($name, $default);
-
     if ($value===null)
     {
       throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
@@ -160,7 +155,6 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getManUrl(string $name, ?string $default = null, bool $forceRelative = true): string
   {
     $value = $this->getOptUrl($name, $default, $forceRelative);
-
     if ($value===null)
     {
       throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
@@ -216,7 +210,7 @@ class CoreCgi extends PlaisioObject implements Cgi
    */
   public function getOptFloat(string $name, ?float $default = null): ?float
   {
-    $value = $_GET[$name] ?? null;
+    $value = $this->nub->request->cgi[$name] ?? null;
     if ($value==='')
     {
       $value = null;
@@ -251,7 +245,7 @@ class CoreCgi extends PlaisioObject implements Cgi
    */
   public function getOptId(string $name, string $label, ?int $default = null): ?int
   {
-    $value = $_GET[$name] ?? null;
+    $value = $this->nub->request->cgi[$name] ?? null;
 
     try
     {
@@ -287,7 +281,7 @@ class CoreCgi extends PlaisioObject implements Cgi
    */
   public function getOptInt(string $name, ?int $default = null): ?int
   {
-    $value = $_GET[$name] ?? null;
+    $value = $this->nub->request->cgi[$name] ?? null;
     if ($value==='')
     {
       $value = null;
@@ -322,7 +316,7 @@ class CoreCgi extends PlaisioObject implements Cgi
    */
   public function getOptString(string $name, ?string $default = null): ?string
   {
-    $value = $_GET[$name] ?? null;
+    $value = $this->nub->request->cgi[$name] ?? null;
     if ($value==='')
     {
       $value = null;
@@ -361,7 +355,6 @@ class CoreCgi extends PlaisioObject implements Cgi
   public function getOptUrl(string $name, ?string $default = null, bool $forceRelative = true): ?string
   {
     $value = $this->getOptString($name, $default);
-
     if ($value!==null && $forceRelative && !Url::isRelative($value))
     {
       throw new InvalidUrlException("The value '%' of CGI parameter '%s' is not a relative URL.", $value, $name);

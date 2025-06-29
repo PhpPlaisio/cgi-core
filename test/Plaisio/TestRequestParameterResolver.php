@@ -1,30 +1,25 @@
 <?php
 declare(strict_types=1);
 
-namespace Plaisio\Cgi\Test;
+namespace Plaisio\Cgi\Test\Plaisio;
 
-use Plaisio\Cgi\Test\Plaisio\TestKernel;
-use Plaisio\Kernel\Nub;
+use Plaisio\RequestParameterResolver\RequestParameterResolver;
 
 /**
- * Concrete implementation of the unit test.
+ * A RequestParameterResolver for testing purposes.
  */
-class CoreCgiTest extends CgiTest
+class TestRequestParameterResolver implements RequestParameterResolver
 {
   //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Test cases for putLeader.
-   */
-  public function testPutLeader(): void
-  {
-    $value = Nub::$nub->cgi->putLeader();
-    self::assertSame('', $value);
-  }
+  public static array $get = [];
 
   //--------------------------------------------------------------------------------------------------------------------
-  public function setUp(): void
+  /**
+   * Resolves the parameters of a clean URL and enhances $_GET accordingly.
+   */
+  public function resolveRequestParameters(string $requestUri): array
   {
-    new TestKernel();
+    return self::$get;
   }
 
   //--------------------------------------------------------------------------------------------------------------------

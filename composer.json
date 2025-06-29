@@ -9,20 +9,22 @@
   "license": "MIT",
   "require": {
     "php": ">=8.3",
-    "plaisio/cgi": "^1.4.0",
+    "plaisio/cgi": "^1.4.1",
     "plaisio/exception": "^1.3.0",
     "plaisio/helper-html": "^4.2.0",
-    "plaisio/helper-url": "^1.3.0",
-    "plaisio/kernel": "^3.3.0",
+    "plaisio/helper-url": "^1.3.2",
+    "plaisio/kernel": "^3.3.1",
     "plaisio/obfuscator": "^2.2.0",
+    "plaisio/request": "^2.0.0",
     "setbased/helper-cast": "^3.1.0"
   },
   "require-dev": {
     "phing/phing": "^3.0.1",
-    "phpunit/phpunit": "^11.5.22",
-    "plaisio/cgi-test": "^1.6.0",
+    "phpunit/phpunit": "^11.5.25",
+    "plaisio/cgi-test": "^1.7.0",
     "plaisio/console-kernel": "^1.2.0",
-    "plaisio/obfuscator-core": "^3.4.0"
+    "plaisio/obfuscator-core": "^3.4.1",
+    "plaisio/request-core": "^2.0.1"
   },
   "autoload": {
     "psr-4": {
