@@ -19,8 +19,8 @@ class CoreCgi extends PlaisioObject implements Cgi
   /**
    * Returns the value of a mandatory boolean CGI variable.
    *
-   * @param string    $name    The name of the CGI variable.
-   * @param bool|null $default The default value if the CGI variable is not set.
+   * @param string    $name    The name of the CGI parameter.
+   * @param bool|null $default The default value if the CGI parameter is not set.
    *
    * @return bool
    *
@@ -41,10 +41,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the float value of a mandatory CGI variable.
+   * Returns the float value of a mandatory CGI parameter.
    *
-   * @param string     $name    The name of the CGI variable.
-   * @param float|null $default The value to be used when the CGI variable is not set.
+   * @param string     $name    The name of the CGI parameter.
+   * @param float|null $default The value to be used when the CGI parameter is not set.
    *
    * @return float
    *
@@ -67,10 +67,10 @@ class CoreCgi extends PlaisioObject implements Cgi
   /**
    * Returns the integer value of a mandatory obfuscated database ID.
    *
-   * @param string   $name    The name of the CGI variable.
-   * @param string   $label   An alias for the column holding database ID and must correspond with label that was used
-   *                          to obfuscate the database ID.
-   * @param int|null $default The value to be used when the CGI variable is not set.
+   * @param string   $name    The name of the CGI parameter.
+   * @param string   $label   An alias for the column holding database ID and must correspond with the label that was
+   *                          used to obfuscate the database ID.
+   * @param int|null $default The value to be used when the CGI parameter is not set.
    *
    * @return int
    *
@@ -91,10 +91,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the integer value of a mandatory CGI variable.
+   * Returns the integer value of a mandatory CGI parameter.
    *
-   * @param string   $name    The name of the CGI variable.
-   * @param int|null $default The value to be used when the CGI variable is not set.
+   * @param string   $name    The name of the CGI parameter.
+   * @param int|null $default The value to be used when the CGI parameter is not set.
    *
    * @return int
    *
@@ -115,12 +115,12 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of a mandatory CGI variable.
+   * Returns the value of a mandatory CGI parameter.
    *
-   * For retrieving a CGI variable with a relative URI use {@link getManCgiUrl}.
+   * For retrieving a CGI parameter with a relative URI use {@link getManCgiUrl}.
    *
-   * @param string      $name    The name of the CGI variable.
-   * @param string|null $default The value to be used when the CGI variable is not set.
+   * @param string      $name    The name of the CGI parameter.
+   * @param string|null $default The value to be used when the CGI parameter is not set.
    *
    * @return string
    *
@@ -141,14 +141,14 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of a mandatory CGI variable holding a URL.
+   * Returns the value of a mandatory CGI parameter holding a URL.
    *
    * This method will protect against unvalidated redirects, see
    * <https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet>.
    *
-   * @param string      $name          The name of the CGI variable.
-   * @param string|null $default       The URL to be used when the CGI variable is not set.
-   * @param bool        $forceRelative If set the URL must be a relative URL. If the URL is not a relative URL an
+   * @param string      $name          The name of the CGI parameter.
+   * @param string|null $default       The URL to be used when the CGI parameter is not set.
+   * @param bool        $forceRelative If set, the URL must be a relative URL. If the URL is not a relative URL an
    *                                   exception will be thrown.
    *
    * @return string
@@ -170,10 +170,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of an optional boolean CGI variable.
+   * Returns the value of an optional boolean CGI parameter.
    *
-   * @param string    $name    The name of the CGI variable.
-   * @param bool|null $default The default value if the CGI variable is not set.
+   * @param string    $name    The name of the CGI parameter.
+   * @param bool|null $default The default value if the CGI parameter is not set.
    *
    * @return bool|null
    *
@@ -200,10 +200,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the float value of an optional CGI variable holding.
+   * Returns the float value of an optional CGI parameter holding.
    *
-   * @param string     $name    The name of the CGI variable.
-   * @param float|null $default The value to be used when the CGI variable is not set.
+   * @param string     $name    The name of the CGI parameter.
+   * @param float|null $default The value to be used when the CGI parameter is not set.
    *
    * @return float|null
    *
@@ -232,10 +232,10 @@ class CoreCgi extends PlaisioObject implements Cgi
   /**
    * Returns the value of an optional obfuscated database ID.
    *
-   * @param string   $name    The name of the CGI variable.
+   * @param string   $name    The name of the CGI parameter.
    * @param string   $label   An alias for the column holding database ID and must correspond with label that was used
    *                          to obfuscate the database ID.
-   * @param int|null $default The value to be used when the CGI variable is not set.
+   * @param int|null $default The value to be used when the CGI parameter is not set.
    *
    * @return int|null
    *
@@ -258,10 +258,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the integer value of an optional CGI variable holding.
+   * Returns the integer value of an optional CGI parameter.
    *
-   * @param string   $name    The name of the CGI variable.
-   * @param int|null $default The value to be used when the CGI variable is not set.
+   * @param string   $name    The name of the CGI parameter.
+   * @param int|null $default The value to be used when the CGI parameter is not set.
    *
    * @return int|null
    *
@@ -288,12 +288,12 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of an optional CGI variable.
+   * Returns the value of an optional CGI parameter.
    *
-   * For retrieving a CGI variable with a relative URI use {@link getOptCgiUrl}.
+   * For retrieving a CGI parameter with a relative URI use {@link getOptCgiUrl}.
    *
-   * @param string      $name    The name of the CGI variable.
-   * @param string|null $default The value to be used when the CGI variable is not set.
+   * @param string      $name    The name of the CGI parameter.
+   * @param string|null $default The value to be used when the CGI parameter is not set.
    *
    * @return string|null
    *
@@ -320,14 +320,14 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns the value of an optional CGI variable holding a URL.
+   * Returns the value of an optional CGI parameter holding a URL.
    *
    * This method will protect against unvalidated redirects, see
    * <https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet>.
    *
-   * @param string      $name          The name of the CGI variable.
-   * @param string|null $default       The URL to be used when the CGI variable is not set.
-   * @param bool        $forceRelative If set the URL must be a relative URL. If the URL is not a relative URL an
+   * @param string      $name          The name of the CGI parameter.
+   * @param string|null $default       The URL to be used when the CGI parameter is not set.
+   * @param bool        $forceRelative If set, the URL must be a relative URL. If the URL is not a relative URL an
    *                                   exception will be thrown.
    *
    * @return string|null
@@ -349,11 +349,11 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a boolean CGI variable that can be used as a part of a URL.
+   * Returns a string with holding a boolean CGI parameter that can be used as a part of a URL.
    *
-   * @param string    $name      The name of the boolean CGI variable.
-   * @param bool|null $value     The value of the CGI variable.
-   * @param bool      $mandatory If true a false value will not result in an empty string.
+   * @param string    $name      The name of the boolean CGI parameter.
+   * @param bool|null $value     The value of the CGI parameter.
+   * @param bool      $mandatory If true, a false value will not result in an empty string.
    *
    * @return string
    *
@@ -377,10 +377,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a floating point CGI variable that can be used as a part of a URL.
+   * Returns a string with holding a floating point CGI parameter that can be used as a part of a URL.
    *
-   * @param string     $name  The name of the boolean CGI variable.
-   * @param float|null $value The value of the CGI variable.
+   * @param string     $name  The name of the boolean CGI parameter.
+   * @param float|null $value The value of the CGI parameter.
    *
    * @return string
    *
@@ -399,10 +399,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a CGI variable that can be used as a part of a URL.
+   * Returns a string with holding a CGI parameter that can be used as a part of a URL.
    *
-   * @param string   $name  The name of the CGI variable.
-   * @param int|null $value The value of the CGI variable.
+   * @param string   $name  The name of the CGI parameter.
+   * @param int|null $value The value of the CGI parameter.
    * @param string   $label The alias for the column holding database ID.
    *
    * @return string
@@ -422,10 +422,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding an integer CGI variable that can be used as a part of a URL.
+   * Returns a string with holding an integer CGI parameter that can be used as a part of a URL.
    *
-   * @param string   $name  The name of the CGI variable.
-   * @param int|null $value The value of the CGI variable.
+   * @param string   $name  The name of the CGI parameter.
+   * @param int|null $value The value of the CGI parameter.
    *
    * @return string
    *
@@ -474,10 +474,10 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a CGI variable that can be used as a part of a URL.
+   * Returns a string with holding a CGI parameter that can be used as a part of a URL.
    *
-   * @param string      $name  The name of the CGI variable.
-   * @param string|null $value The value of the CGI variable.
+   * @param string      $name  The name of the CGI parameter.
+   * @param string|null $value The value of the CGI parameter.
    *
    * @return string
    *
@@ -496,12 +496,12 @@ class CoreCgi extends PlaisioObject implements Cgi
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Returns a string with holding a CGI variable with a URL as value that can be used as a part of a URL.
+   * Returns a string with holding a CGI parameter with a URL as the value that can be used as a part of a URL.
    *
    * Note: This method is an alias of {@link putCgiVar}.
    *
-   * @param string      $name  The name of the CGI variable.
-   * @param string|null $value The value of the CGI variable.
+   * @param string      $name  The name of the CGI parameter.
+   * @param string|null $value The value of the CGI parameter.
    *
    * @return string
    *
