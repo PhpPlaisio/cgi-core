@@ -6,6 +6,7 @@ namespace Plaisio\Cgi;
 use Plaisio\Exception\InvalidUrlException;
 use Plaisio\Helper\Html;
 use Plaisio\Helper\Url;
+use Plaisio\Obfuscator\Exception\DecodeException;
 use Plaisio\PlaisioObject;
 use SetBased\Helper\Cast;
 use SetBased\Helper\InvalidCastException;
@@ -252,7 +253,17 @@ class CoreCgi extends PlaisioObject implements Cgi
   {
     $value = $_GET[$name] ?? null;
 
-    $id = $this->nub->obfuscator::decode($value, $label);
+    try
+    {
+      $id = $this->nub->obfuscator::decode($value, $label);
+    }
+    catch (DecodeException $exception)
+    {
+      throw new InvalidUrlException([$exception],
+                                    "The value '%s' of CGI parameter '%s' is not a valid obfuscated ID.",
+                                    $value,
+                                    $name);
+    }
 
     if ($id!==null)
     {
