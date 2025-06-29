@@ -33,7 +33,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
     if ($value===null)
     {
-      throw new InvalidUrlException("Mandatory CGI variable '%s' is empty", $name);
+      throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
     }
 
     return $value;
@@ -57,7 +57,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
     if ($value===null)
     {
-      throw new InvalidUrlException("Mandatory CGI variable '%s' is empty", $name);
+      throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
     }
 
     return $value;
@@ -83,7 +83,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
     if ($value===null)
     {
-      throw new InvalidUrlException("Mandatory CGI variable '%s' is empty", $name);
+      throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
     }
 
     return $value;
@@ -107,7 +107,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
     if ($value===null)
     {
-      throw new InvalidUrlException("Mandatory CGI variable '%s' is empty", $name);
+      throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
     }
 
     return $value;
@@ -133,7 +133,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
     if ($value===null)
     {
-      throw new InvalidUrlException("Mandatory CGI variable '%s' is empty", $name);
+      throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
     }
 
     return $value;
@@ -162,7 +162,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
     if ($value===null)
     {
-      throw new InvalidUrlException("Mandatory CGI variable '%s' is empty", $name);
+      throw new InvalidUrlException("Mandatory CGI parameter '%s' is empty.", $name);
     }
 
     return $value;
@@ -182,7 +182,7 @@ class CoreCgi extends PlaisioObject implements Cgi
    */
   public function getOptBool(string $name, ?bool $default = null): ?bool
   {
-    $value = $_GET[$name] ?? null;
+    $value = $this->nub->request->cgi[$name] ?? null;
     if ($value==='')
     {
       $value = null;
@@ -192,9 +192,12 @@ class CoreCgi extends PlaisioObject implements Cgi
     {
       return Cast::toOptBool($value, $default);
     }
-    catch (InvalidCastException $e)
+    catch (InvalidCastException $exception)
     {
-      throw new InvalidUrlException([$e], "Value of CGI variable '%s' is not a boolean", $name);
+      throw new InvalidUrlException([$exception],
+                                    "The value '%s' of CGI parameter '%s' is not a boolean.",
+                                    $value,
+                                    $name);
     }
   }
 
@@ -222,9 +225,12 @@ class CoreCgi extends PlaisioObject implements Cgi
     {
       return Cast::toOptFloat($value, $default);
     }
-    catch (InvalidCastException $e)
+    catch (InvalidCastException $exception)
     {
-      throw new InvalidUrlException([$e], "Value of CGI variable '%s' is not a float", $name);
+      throw new InvalidUrlException([$exception],
+                                    "The value '%s' of CGI parameter '%s' is not a float.",
+                                    $value,
+                                    $name);
     }
   }
 
@@ -280,9 +286,12 @@ class CoreCgi extends PlaisioObject implements Cgi
     {
       return Cast::toOptInt($value, $default);
     }
-    catch (InvalidCastException $e)
+    catch (InvalidCastException $exception)
     {
-      throw new InvalidUrlException([$e], "Value of CGI variable '%s' is not an integer", $name);
+      throw new InvalidUrlException([$exception],
+                                    "The value '%s' of CGI parameter '%s' is not an integer.",
+                                    $value,
+                                    $name);
     }
   }
 
@@ -312,9 +321,12 @@ class CoreCgi extends PlaisioObject implements Cgi
     {
       return Cast::toOptString($value, $default);
     }
-    catch (InvalidCastException $e)
+    catch (InvalidCastException $exception)
     {
-      throw new InvalidUrlException([$e], "Value of CGI variable '%s' is not a string", $name);
+      throw new InvalidUrlException([$exception],
+                                    "The value '%s' of CGI parameter '%s' is not a string.",
+                                    $value,
+                                    $name);
     }
   }
 
@@ -341,7 +353,7 @@ class CoreCgi extends PlaisioObject implements Cgi
 
     if ($value!==null && $forceRelative && !Url::isRelative($value))
     {
-      throw new InvalidUrlException("Value of CGI variable '%s' is not a relative URL", $name);
+      throw new InvalidUrlException("The value '%' of CGI parameter '%s' is not a relative URL.", $value, $name);
     }
 
     return $value;
